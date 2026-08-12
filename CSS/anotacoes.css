@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.titulo{
+    background-color: #4E49CE;
+    border-radius: 0 0 80px 80px;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.titulo h1{
+    margin: 0 0;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.notas{
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+}
+
+.adic_nota{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DBEAD9;
+    border-radius: 30px;
+    width: 50vw;
+    height: 30vh;
+    transition: 0.5s;
+}
+
+
+
+.icone_mais{
+    width: 10vh;
+}
+
+.adic_nota:hover{
+    background-color: #bad3b7;
+    transform: scale(1.02);
+    cursor: pointer;
+    
+}
+
+#nova_nota{
+     background-color: #7AB1EF; /*ainda não existe*/
+
+}
