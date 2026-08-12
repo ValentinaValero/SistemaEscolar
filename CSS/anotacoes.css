@@ -20,13 +20,10 @@ body{
     font-size: 2.5rem;
 }
 
-.notas{
-    display: flex;
-    margin-top: 10vh;
-    justify-content: center;
-}
 
 .adic_nota{
+    margin-top: 10vh;
+    justify-self: center;
     display: flex;
     align-items: center;
     justify-content: center;

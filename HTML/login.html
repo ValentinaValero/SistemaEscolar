@@ -19,12 +19,13 @@
             <h1>Login</h1>
 
             <label for="email">@escola</label>
-            <input type="email" placeholder="Insira o seu @escola">
-
-            <label for="senha">senha</label>
-            <input type="password" placeholder="Insira a sua senha">
+            <input id="email" type="email" placeholder="Insira o seu @escola">
             
-            <button type="submit">Entrar</button>
+            <label for="senha">senha</label>
+            <input id="senha" type="password" placeholder="Insira a sua senha"> 
+            <div id="icone" class="icone" onclick="mostrar_senha()"></div>
+            
+            <button type="submit" onclick="logar(); return false">Entrar</button>
            
         </form>
 

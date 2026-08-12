@@ -80,6 +80,31 @@ body {
     outline: none;
 }
 
+.icone{
+    background-image: url(../IMG/olho.png);
+    background-size: cover;
+    position: absolute;
+    top: 56vh;
+    left: 82vw;
+    width: 2vw;
+    height: 4vh;
+}
+
+.icone_invisivel{
+    background-image: url(../IMG/olho_invisivel.png);
+    background-size: cover;
+    position: absolute;
+    top: 56vh;
+    left: 82vw;
+    width: 2vw;
+    height: 4vh;
+
+}
+
+.icone:hover{
+    cursor: pointer;
+}
+
 .formulario button{
     background-color: #82DD78;
     color: white;
