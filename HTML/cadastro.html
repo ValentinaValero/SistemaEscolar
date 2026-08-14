@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../CSS/cadastro.css">
+</head>
+
+<body>
+    <div class="metade_1">
+        <h1>"Educação é a arma mais poderosa para mudar o mundo."</h1>
+        <p>- Nelson Mandela</p>
+    </div>
+
+    <div class="metade_2">
+
+        <form class="formulario">
+            <h1>Cadastro</h1>
+
+            <label for="email">@escola</label>
+            <input id="email" type="email" placeholder="Insira o seu @escola">
+
+            <label for="senha">senha</label>
+            <input id="senha" type="password" placeholder="Crie a sua senha">
+            <div id="icone" class="icone" onclick="mostrar_senha()"></div>
+
+            <button type="submit" onclick="salvar_user()">Cadastrar</button>
+            <p>Já tem uma conta?
+                <a href="../HTML/login.html">Faça login</a>
+            </p>
+
+        </form>
+
+
+    </div>
+
+    <script src="../JS/cadastro.js"></script>
+</body>
+
+</html>

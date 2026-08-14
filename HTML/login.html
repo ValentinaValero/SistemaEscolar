@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/login.css">
 </head>
+
 <body>
     <div class="metade_1">
         <h1>"Educação é a arma mais poderosa para mudar o mundo."</h1>
@@ -13,27 +15,30 @@
     </div>
 
     <div class="metade_2">
-        <div class="circulo cima"></div>
 
         <form class="formulario">
             <h1>Login</h1>
 
             <label for="email">@escola</label>
             <input id="email" type="email" placeholder="Insira o seu @escola">
-            
+
             <label for="senha">senha</label>
-            <input id="senha" type="password" placeholder="Insira a sua senha"> 
+            <input id="senha" type="password" placeholder="Insira a sua senha">
             <div id="icone" class="icone" onclick="mostrar_senha()"></div>
-            
+            <p class="letra_menor">Esqueceu a senha? <strong class="abrir_bloco" onclick="criar_bloco_senha();">Mudar
+                    senha</strong></p>
+
             <button type="submit" onclick="logar(); return false">Entrar</button>
-           
+            <!--Return pq se não, não redireciona-->
+            <p>Não tem uma conta?<a href="../HTML/cadastro.html">Cadastre-se!</a></p>
+
         </form>
-
-        <div class="circulo embaixo"></div>
-
 
     </div>
 
+    <div id="bloco"></div> <!--bloco do mudar senha-->
+
     <script src="../JS/login.js"></script>
 </body>
+
 </html>

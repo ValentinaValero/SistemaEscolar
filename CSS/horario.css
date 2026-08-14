@@ -1,15 +1,15 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.container_geral{
+.container_geral {
     display: flex;
     position: relative;
 }
 
 
-.titulo{
+.titulo {
     position: fixed;
     z-index: 1;
     background-color: #4E49CE;
@@ -22,35 +22,53 @@ body{
 }
 
 
-.titulo h1{
+.titulo h1 {
     margin: 0 0;
     color: white;
     font-size: 2.5rem;
 }
 
-.metade_1{
+.sub_titulo {
+    display: flex;
+    margin-top: 17vh;
+    color: #262557;
+    gap: 1vw;
+}
+
+.sub_titulo button {
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: #262557;
+}
+
+.sub_titulo button:hover {
+    cursor: pointer;
+}
+
+.metade_1 {
     width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-.dia_semana{
+.dia_semana {
     margin-top: 20vh;
     margin-left: 2vw;
-    
+
 }
 
-.metade_1 ul{
+.metade_1 ul {
     display: flex;
     flex-direction: column;
     gap: 4vh;
 }
 
 
-.metade_1 li{
-    
+.metade_1 li {
+    color: white;
     background-color: #635fe9;
     display: flex;
     align-items: center;
@@ -60,28 +78,28 @@ body{
     width: 30vw;
     height: 14vh;
     list-style: none;
-    
+
 
 }
 
-.metade_2{
+.metade_2 {
     width: 43vw;
     height: 100vh;
     background-color: #7AB1EF;
+    color: #262557;
     position: fixed;
-    right: 0;     
+    right: 0;
     top: 0;
     z-index: -1;
 }
 
-.metade_2 h1{
+.metade_2 h1 {
     margin: 20vh 0 0 13vw;
 
 }
 
-.metade_2 li{
+.metade_2 li {
     margin-top: 5vh;
     margin-left: 5vw;
     font-size: 1.5rem;
 }
-

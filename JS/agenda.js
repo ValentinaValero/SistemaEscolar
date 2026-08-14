@@ -31,7 +31,7 @@ const nomes_meses = [
     "Março",
     "Abril",
     "Maio",
-    "Junho", 
+    "Junho",
     "Julho",
     "Agosto",
     "Setembro",

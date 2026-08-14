@@ -1,13 +1,13 @@
 body {
     padding: 0;
     margin: 0;
-} 
+}
 
-.banner{
-    
+.banner {
+
     background-image:
-    linear-gradient(#e1e0e677, #503dada6),
-    url("../IMG/home_banner.jpg");
+        linear-gradient(#e1e0e677, #503dada6),
+        url("../IMG/home_banner.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -18,23 +18,23 @@ body {
 
 }
 
-.banner h1{
+.banner h1 {
     margin: 0;
     color: white;
     font-size: 5rem;
 }
 
-.menu{
+.menu {
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6vw;
-    
+
 
 }
 
-.menu div{
+.menu div {
     margin: 10vh 0;
     align-items: center;
     justify-content: center;
@@ -47,37 +47,37 @@ body {
     transition: 0.5s;
 }
 
-.menu div:hover{
+.menu div:hover {
     transform: scale(1.02);
 }
 
-.menu a{
+.menu a {
     color: white;
     text-decoration: none;
 }
 
 /*Cores específicas de cada botão*/
 
-.anotacoes{
+.anotacoes {
     background-color: #5998e0;
 }
 
-.anotacoes:hover{
+.anotacoes:hover {
     background-color: #3d75b4;
 }
 
-.agenda{
+.agenda {
     background-color: #62bb58;
 }
 
-.agenda:hover{
+.agenda:hover {
     background-color: #4d9246;
 }
 
-.horario{
+.horario {
     background-color: #6663cc;
 }
 
-.horario:hover{
+.horario:hover {
     background-color: #514eaa;
 }

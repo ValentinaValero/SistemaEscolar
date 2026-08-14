@@ -1,10 +1,11 @@
-body{
+body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
 
-.titulo{
+.titulo {
     background-color: #4E49CE;
     border-radius: 0 0 80px 80px;
     height: 15vh;
@@ -14,14 +15,14 @@ body{
 }
 
 
-.titulo h1{
+.titulo h1 {
     margin: 0 0;
     color: white;
     font-size: 2.5rem;
 }
 
 
-.adic_nota{
+.adic_nota {
     margin-top: 10vh;
     justify-self: center;
     display: flex;
@@ -36,18 +37,61 @@ body{
 
 
 
-.icone_mais{
+.icone_mais {
     width: 10vh;
 }
 
-.adic_nota:hover{
+.adic_nota:hover {
     background-color: #bad3b7;
-    transform: scale(1.02);
+    transform: scale(1.01);
     cursor: pointer;
-    
+
 }
 
-#nova_nota{
-     background-color: #7AB1EF; /*ainda não existe*/
+/* Apartir daqui as notas criadas */
 
+.notas {
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6vh;
+}
+
+.nova_nota {
+    background-color: #a3c4eb;
+    margin-top: 5vh;
+    width: 47vw;
+    height: 23vh;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    min-height: 100px;
+    transition: 0.5s;
+}
+
+.nova_nota:hover {
+    background-color: #80aee4;
+
+}
+
+.nova_nota p {
+    margin: 0;
+    outline: none;
+
+}
+
+
+/*botão x*/
+
+.excluir {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ce4949;
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
