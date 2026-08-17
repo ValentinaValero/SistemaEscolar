@@ -1,4 +1,6 @@
-# 📚 Sistema Escolar
+<img width="60"  src="/IMG/logo_ccm.png" /> <img width="60"  src="/IMG/logo_yvone.png" />
+
+# Sistema Escolar
 
 Um sistema web desenvolvido para auxiliar estudantes na organização da rotina escolar, reunindo recursos de **anotações, agenda, horário de aulas e atividades** em um único ambiente.
 
