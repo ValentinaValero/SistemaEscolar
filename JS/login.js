@@ -44,11 +44,11 @@ function criar_bloco_senha() {
         return;
     }
 
-    const novoBloco = document.createElement("div");
+    const novo_bloco = document.createElement("div");
 
-    novoBloco.classList.add("bloco_senha");
+    novo_bloco.classList.add("bloco_senha");
 
-    novoBloco.innerHTML = `
+    novo_bloco.innerHTML = `
     <h2>Alterar senha</h2>
 
     <input type="email" placeholder="Email" class="email">
@@ -58,10 +58,10 @@ function criar_bloco_senha() {
         <div class="icone_nova_senha" onclick="mostrar_nova_senha(this)"></div>
     </div>
 
-    <button onclick="mudarSenha(this)">Mudar senha</button>
+    <button onclick="mudar_senha(this)">Mudar senha</button>
     `;
 
-    bloco.appendChild(novoBloco);
+    bloco.appendChild(novo_bloco);
 }
 
 
@@ -71,15 +71,15 @@ function criar_bloco_senha() {
 
 document.addEventListener("click", function (event) {
 
-    const blocoSenha = document.querySelector(".bloco_senha");
-    const abrirBloco = event.target.closest(".abrir_bloco");
+    const bloco_senha = document.querySelector(".bloco_senha");
+    const abrir_bloco = event.target.closest(".abrir_bloco");
 
-    if (!blocoSenha) {
+    if (!bloco_senha) {
         return;
     }
 
-    if (!blocoSenha.contains(event.target) && !abrirBloco) {
-        blocoSenha.remove();
+    if (!bloco_senha.contains(event.target) && !abrir_bloco) {
+        bloco_senha.remove();
     }
 
 });
@@ -102,22 +102,22 @@ function mostrar_nova_senha(icone) {
 
 //valida se o email existe. Se existir ele muda para a nova senha
 
-function mudarSenha(botao) {
+function mudar_senha(botao) {
 
-    const blocoSenha = botao.parentElement;
+    const bloco_senha = botao.parentElement;
 
-    const email = blocoSenha.querySelector(".email").value;
-    const novaSenha = blocoSenha.querySelector(".nova_senha").value;
+    const email = bloco_senha.querySelector(".email").value;
+    const nova_senha = bloco_senha.querySelector(".nova_senha").value;
 
-    const emailSalvo = localStorage.getItem("email_usuario");
+    const email_salvo = localStorage.getItem("email_usuario");
 
-    if (email === emailSalvo) {
+    if (email === email_salvo) {
 
-        localStorage.setItem("senha_usuario", novaSenha);
+        localStorage.setItem("senha_usuario", nova_senha);
 
         alert("Senha alterada com sucesso!");
 
-        blocoSenha.remove();
+        bloco_senha.remove();
 
     }
 

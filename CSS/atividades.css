@@ -21,13 +21,13 @@ body {
     font-size: 2.5rem;
 }
 
-.principal{
+.principal {
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
 
-.atividade_1{
+.atividade_1 {
     width: 85vw;
     border-radius: 20px;
     justify-content: center;
@@ -41,12 +41,12 @@ body {
     text-decoration: none;
 }
 
-.atividade_1:hover{
+.atividade_1:hover {
     background-color: #5f97d6;
-    
+
 }
 
-.atividade_1 .efeito{
+.atividade_1 .efeito {
     background-color: #4E49CE;
     text-align: center;
     padding: 10px;
@@ -55,7 +55,7 @@ body {
 
 }
 
-.status{
+.status {
     display: flex;
     justify-content: center;
     align-items: center;

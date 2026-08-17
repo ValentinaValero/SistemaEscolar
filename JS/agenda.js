@@ -36,9 +36,6 @@ const adicionar_evento = document.getElementById("adicionar_evento");
 let eventos = JSON.parse(localStorage.getItem("eventos")) || {};
 
 
-// --------------------------------------------------
-// CRIA O CALENDÁRIO
-// --------------------------------------------------
 
 function criar_calendario() {
 
@@ -55,7 +52,7 @@ function criar_calendario() {
     ).getDate();
 
 
-  
+
     // Cria os dias
     for (let dia = 1; dia <= quantidade_dias; dia++) {
 
@@ -89,9 +86,6 @@ function criar_calendario() {
 }
 
 
-// --------------------------------------------------
-// CRIA A IDENTIFICAÇÃO DA DATA
-// --------------------------------------------------
 
 function criar_data(dia) {
 
@@ -99,10 +93,6 @@ function criar_data(dia) {
 
 }
 
-
-// --------------------------------------------------
-// SELECIONA UM DIA
-// --------------------------------------------------
 
 function selecionar_dia(dia, elemento) {
 
@@ -122,11 +112,6 @@ function selecionar_dia(dia, elemento) {
     mostrar_eventos();
 
 }
-
-
-// --------------------------------------------------
-// MOSTRA OS EVENTOS DO DIA
-// --------------------------------------------------
 
 function mostrar_eventos() {
 
@@ -166,9 +151,6 @@ function mostrar_eventos() {
 }
 
 
-// --------------------------------------------------
-// CRIA O EVENTO NA TELA
-// --------------------------------------------------
 
 function criar_evento_visual(evento, indice) {
 
@@ -257,9 +239,6 @@ function criar_evento_visual(evento, indice) {
 }
 
 
-// --------------------------------------------------
-// ADICIONAR EVENTO
-// --------------------------------------------------
 
 adicionar_evento.addEventListener("click", function () {
 
@@ -332,9 +311,6 @@ adicionar_evento.addEventListener("click", function () {
 });
 
 
-// --------------------------------------------------
-// SALVAR NO LOCAL STORAGE
-// --------------------------------------------------
 
 function salvar_eventos() {
 
@@ -346,9 +322,6 @@ function salvar_eventos() {
 }
 
 
-// --------------------------------------------------
-// TROCAR MÊS
-// --------------------------------------------------
 
 function mudar_mes(valor) {
 
@@ -397,9 +370,5 @@ botao_proximo.addEventListener("click", function () {
 
 });
 
-
-// --------------------------------------------------
-// INICIA O CALENDÁRIO
-// --------------------------------------------------
 
 criar_calendario();

@@ -4,9 +4,6 @@ body {
     background-color: #e2dfff;
 }
 
-
-/* TÍTULO */
-
 .titulo {
     background-color: #4E49CE;
     border-radius: 0 0 80px 80px;
@@ -48,9 +45,6 @@ body {
     margin-bottom: 30px;
 }
 
-
-/* RESULTADO */
-
 .resultado {
     background-color: #4E49CE;
     color: white;
@@ -60,9 +54,6 @@ body {
     text-align: center;
     font-size: 1.5rem;
 }
-
-
-/* QUESTÃO */
 
 .questao {
     background-color: #f0f0f0;
@@ -78,9 +69,6 @@ body {
     color: #222;
     font-size: 1.2rem;
 }
-
-
-/* ALTERNATIVAS */
 
 .alternativa {
     display: block;
@@ -103,16 +91,11 @@ body {
 }
 
 
-/* RESPOSTA CORRETA */
-
 .resposta_correta {
     background-color: #82DD78;
     color: white;
     font-weight: bold;
 }
-
-
-/* RESPOSTA ERRADA */
 
 .resposta_errada {
     background-color: #e57373;
@@ -120,15 +103,9 @@ body {
     font-weight: bold;
 }
 
-
-/* RESPOSTA QUE O USUÁRIO MARCOU */
-
 .resposta_usuario {
     border: 3px solid #4E49CE;
 }
-
-
-/* BOTÃO ENVIAR */
 
 .botao_enviar {
     background-color: #4E49CE;
@@ -146,9 +123,6 @@ body {
     background-color: #3935a5;
     transform: scale(1.02);
 }
-
-
-/* AVISO DE REVISÃO */
 
 .atividade_bloqueada {
     background-color: #eee;

@@ -12,7 +12,7 @@ const questoes = [
         correta: 1
     },
     {
-        pergunta: "Qual linguagem é utilizada para estilizar páginas web?",
+        pergunta: "Qual linguagem de estilo é utilizada para estilizar páginas web?",
         alternativas: ["HTML", "JavaScript", "CSS", "Python"],
         correta: 2
     },
@@ -33,8 +33,6 @@ const questoes = [
     }
 ];
 
-
-// INFORMAÇÕES
 
 const parametros = new URLSearchParams(window.location.search);
 const atividade_id = parametros.get("id") || "atividade_1";
@@ -119,7 +117,7 @@ function mostrar_atividade(revisao = false) {
 
         formulario.appendChild(botao);
 
-        formulario.addEventListener("submit", function(evento) {
+        formulario.addEventListener("submit", function (evento) {
             evento.preventDefault();
             finalizar_atividade(formulario);
         });
