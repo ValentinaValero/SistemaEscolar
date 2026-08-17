@@ -3,15 +3,18 @@ body {
     padding: 0;
 }
 
+
 h1 {
     margin: 0;
 }
+
 
 .titulo {
     background-color: #4E49CE;
     border-radius: 0 0 80px 80px;
     width: 100vw;
     height: 15vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,126 +30,315 @@ h1 {
 .calendario {
     background-color: #5e5d86;
     border-radius: 30px;
+
     width: 80vw;
-    height: 70vh;
+    height: 75vh;
+
     display: flex;
     justify-self: center;
-    margin-top: 8vh;
 
+    margin-top: 5vh;
+
+    overflow: hidden;
 }
+
+
+/* CALENDÁRIO */
 
 .mtd_agnd_1 {
     background-color: #4E49CE;
+
     border-radius: 30px 0 0 30px;
+
     width: 65%;
+
+    padding-bottom: 30px;
 }
+
 
 .escolher_mes {
     color: white;
+
     margin-top: 2%;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     gap: 5%;
 }
+
 
 .escolher_mes button {
     background: none;
     border: none;
+
     font-size: 2rem;
+
     color: white;
 }
+
 
 .escolher_mes button:hover {
     cursor: pointer;
 }
 
 
-
 .mtd_agnd_1 hr {
     margin-top: 2%;
+
     border: none;
+
     background-color: white;
+
     height: 0.5vh;
 }
 
+
 .dias_semana {
     color: white;
+
     width: 90%;
+
     list-style-type: none;
-    display: flex;
-    justify-content: center;
-    gap: 10%;
+
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    text-align: center;
+
+    padding: 0;
+
+    margin: 20px auto;
 }
 
+
 .dias_mes {
-    width: 87%;
-    margin-left: 2.5%;
+    width: 90%;
+
+    margin: auto;
+
+    padding: 0;
+
     display: grid;
-    /* Cria exatamente 3 colunas de tamanhos iguais */
+
     grid-template-columns: repeat(7, 1fr);
-    gap: 5%;
+
+    gap: 15px;
 }
+
 
 .dias_mes li {
     background-color: white;
+
     border-radius: 20px;
+
     color: #080808;
+
     font-size: 1.5rem;
+
     width: 4vw;
     height: 8vh;
+
     list-style-type: none;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    gap: 10%;
+
+    position: relative;
+
     transition: 0.2s;
-
 }
 
-.dias_mes li:hover {
+
+.dias_mes .dia:hover {
     cursor: pointer;
-    background-color: #82DD78;
-    color: white;
-    transform: scale(1.01);
 
+    background-color: #82DD78;
+
+    color: white;
+
+    transform: scale(1.03);
 }
+
 
 .dias_mes li.selecionado {
     background-color: #82DD78;
+
     color: white;
 }
 
-.dias_mes li.tem-evento {
-    position: relative;
-}
+
+/* Bolinha de evento */
 
 .dias_mes li.tem-evento::after {
+
     content: "";
+
     position: absolute;
+
     bottom: 8px;
+
     width: 7px;
     height: 7px;
+
     background-color: #4E49CE;
+
     border-radius: 50%;
 }
 
 
+/* PAINEL DE EVENTOS */
 
 .mtd_agnd_2 {
     background-color: #74df68;
     color: white;
+
     border-radius: 0 30px 30px 0;
+
     width: 35%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    padding-bottom: 30px;
 }
 
+
 .mtd_agnd_2 h1 {
+
     text-align: center;
+
     font-size: 3rem;
+
     margin-top: 6vh;
 }
 
-.mtd_agnd_2 ul {
-    margin-top: 4vh;
-    margin-left: 2vw;
-    font-size: 1.5rem;
+
+/* BOTÃO ADICIONAR */
+
+.adicionar_evento {
+
+    background-color: #DBEAD9;
+
+    width: 80%;
+
+    height: 8vh;
+
+    margin: 4vh auto 2vh;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+
+.adicionar_evento span {
+
+    color: #4E49CE;
+
+    font-size: 3rem;
+
+}
+
+
+.adicionar_evento:hover {
+
+    cursor: pointer;
+
+    background-color: #bad3b7;
+
+    transform: scale(1.02);
+}
+
+
+/* EVENTOS */
+
+.evento_conteudo {
+
+    width: 80%;
+
+    margin: auto;
+}
+
+
+.novo_evento {
+
+    background-color: #4E49CE;
+
+    color: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+
+.novo_evento:hover {
+
+    background-color: #5c59cf;
+
+}
+
+
+.novo_evento h3 {
+
+    margin: 0 30px 10px 0;
+
+    outline: none;
+
+    font-size: 1.3rem;
+}
+
+
+.novo_evento p {
+
+    margin: 0;
+
+    outline: none;
+
+    min-height: 30px;
+}
+
+
+/* BOTÃO EXCLUIR */
+
+.excluir_evento {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    color: #ce4949;
+
+    border: none;
+
+    background: none;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
 }

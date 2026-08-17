@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6vw;
+    gap: 3vw;
 
 
 }
@@ -39,11 +39,11 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.7rem;
     border-radius: 30px;
     display: flex;
-    width: 18vw;
-    height: 35vh;
+    width: 15vw;
+    height: 30vh;
     transition: 0.5s;
 }
 
@@ -80,4 +80,12 @@ body {
 
 .horario:hover {
     background-color: #514eaa;
+}
+
+.questionarios {
+    background-color: #aebb3c;
+}
+
+.questionarios:hover {
+    background-color: #8b962c;
 }

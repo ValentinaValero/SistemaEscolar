@@ -1,30 +1,3 @@
-const eventos = {
-    "08-27": {
-        nome: "Avaliação 2",
-        materia: "Matemática"
-    },
-
-    "08-15": {
-        nome: "Apresentação de Slides",
-        materia: "Português"
-    },
-
-    "08-20": {
-        nome: "Apresentação PMBOK",
-        materia: "Programação Mobile"
-    },
-
-    "09-03": {
-        nome: "Avaliação 1",
-        materia: "Física"
-    },
-
-    "09-10": {
-        nome: "Entrega de trabalho",
-        materia: "Banco de Dados"
-    }
-};
-
 const nomes_meses = [
     "Janeiro",
     "Fevereiro",
@@ -41,96 +14,392 @@ const nomes_meses = [
 ];
 
 
+// Mês que está sendo mostrado
 let mes_atual = 7;
 
 
-const dias = document.querySelectorAll(".dias_mes li");
+// Dia selecionado
+let dia_selecionado = null;
+
+
+// Pega os elementos do HTML
 const nome_mes = document.getElementById("nome_mes");
+const dias_mes = document.getElementById("dias_mes");
 const evento_conteudo = document.getElementById("evento_conteudo");
 
 const botao_anterior = document.getElementById("mes_anterior");
 const botao_proximo = document.getElementById("proximo_mes");
+const adicionar_evento = document.getElementById("adicionar_evento");
 
 
-function criar_data(dia) {
-    return `${String(mes_atual + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
-}
+// Recupera os eventos salvos
+let eventos = JSON.parse(localStorage.getItem("eventos")) || {};
 
-dias.forEach((dia) => {
 
-    dia.addEventListener("click", () => {
+// --------------------------------------------------
+// CRIA O CALENDÁRIO
+// --------------------------------------------------
 
-        dias.forEach((d) => {
-            d.classList.remove("selecionado");
+function criar_calendario() {
+
+    dias_mes.innerHTML = "";
+
+    nome_mes.textContent = nomes_meses[mes_atual];
+
+
+    // Descobre quantos dias o mês possui
+    const quantidade_dias = new Date(
+        2026,
+        mes_atual + 1,
+        0
+    ).getDate();
+
+
+  
+    // Cria os dias
+    for (let dia = 1; dia <= quantidade_dias; dia++) {
+
+        const novo_dia = document.createElement("li");
+
+        novo_dia.textContent = dia;
+
+        novo_dia.classList.add("dia");
+
+
+        // Verifica se esse dia possui eventos
+        const data = criar_data(dia);
+
+        if (eventos[data] && eventos[data].length > 0) {
+
+            novo_dia.classList.add("tem-evento");
+
+        }
+
+
+        // Clique no dia
+        novo_dia.addEventListener("click", function () {
+
+            selecionar_dia(dia, novo_dia);
+
         });
 
-        dia.classList.add("selecionado");
 
-        mostrar_evento(criar_data(Number(dia.textContent)));
+        dias_mes.appendChild(novo_dia);
+    }
+}
+
+
+// --------------------------------------------------
+// CRIA A IDENTIFICAÇÃO DA DATA
+// --------------------------------------------------
+
+function criar_data(dia) {
+
+    return `${mes_atual + 1}-${dia}`;
+
+}
+
+
+// --------------------------------------------------
+// SELECIONA UM DIA
+// --------------------------------------------------
+
+function selecionar_dia(dia, elemento) {
+
+    document.querySelectorAll(".dia").forEach(function (d) {
+
+        d.classList.remove("selecionado");
+
     });
+
+
+    elemento.classList.add("selecionado");
+
+
+    dia_selecionado = dia;
+
+
+    mostrar_eventos();
+
+}
+
+
+// --------------------------------------------------
+// MOSTRA OS EVENTOS DO DIA
+// --------------------------------------------------
+
+function mostrar_eventos() {
+
+    evento_conteudo.innerHTML = "";
+
+
+    if (!dia_selecionado) {
+
+        evento_conteudo.innerHTML = `
+            <p>Selecione um dia.</p>
+        `;
+
+        return;
+    }
+
+
+    const data = criar_data(dia_selecionado);
+
+
+    // Se não houver eventos
+    if (!eventos[data] || eventos[data].length === 0) {
+
+        evento_conteudo.innerHTML = `
+            <p>Nenhum evento neste dia.</p>
+        `;
+
+        return;
+    }
+
+
+    // Cria cada evento
+    eventos[data].forEach(function (evento, indice) {
+
+        criar_evento_visual(evento, indice);
+
+    });
+}
+
+
+// --------------------------------------------------
+// CRIA O EVENTO NA TELA
+// --------------------------------------------------
+
+function criar_evento_visual(evento, indice) {
+
+    const novo_evento = document.createElement("div");
+
+    novo_evento.classList.add("novo_evento");
+
+
+    novo_evento.innerHTML = `
+
+        <button class="excluir_evento">x</button>
+
+        <h3 contenteditable="true">${evento.titulo}</h3>
+
+        <p contenteditable="true">${evento.descricao}</p>
+
+    `;
+
+
+    evento_conteudo.appendChild(novo_evento);
+
+
+    const titulo = novo_evento.querySelector("h3");
+    const descricao = novo_evento.querySelector("p");
+    const botao_excluir = novo_evento.querySelector(".excluir_evento");
+
+
+    // Salva quando o título for alterado
+    titulo.addEventListener("input", function () {
+
+        eventos[criar_data(dia_selecionado)][indice].titulo =
+            titulo.innerText;
+
+        salvar_eventos();
+
+    });
+
+
+    // Salva quando a descrição for alterada
+    descricao.addEventListener("input", function () {
+
+        eventos[criar_data(dia_selecionado)][indice].descricao =
+            descricao.innerText;
+
+        salvar_eventos();
+
+    });
+
+
+    // Excluir evento
+    botao_excluir.addEventListener("click", function () {
+
+        eventos[criar_data(dia_selecionado)].splice(indice, 1);
+
+
+        // Se não tiver mais eventos nesse dia
+        if (eventos[criar_data(dia_selecionado)].length === 0) {
+
+            delete eventos[criar_data(dia_selecionado)];
+
+        }
+
+
+        salvar_eventos();
+
+        criar_calendario();
+
+        // Mantém o dia selecionado
+        const dias = document.querySelectorAll(".dia");
+
+        dias.forEach(function (dia) {
+
+            if (Number(dia.textContent) === dia_selecionado) {
+
+                dia.classList.add("selecionado");
+
+            }
+
+        });
+
+
+        mostrar_eventos();
+
+    });
+
+}
+
+
+// --------------------------------------------------
+// ADICIONAR EVENTO
+// --------------------------------------------------
+
+adicionar_evento.addEventListener("click", function () {
+
+    // Não deixa criar evento sem selecionar um dia
+    if (!dia_selecionado) {
+
+        alert("Selecione um dia primeiro.");
+
+        return;
+    }
+
+
+    const data = criar_data(dia_selecionado);
+
+
+    // Cria a lista daquele dia caso ela ainda não exista
+    if (!eventos[data]) {
+
+        eventos[data] = [];
+
+    }
+
+
+    // Cria o evento
+    eventos[data].push({
+
+        titulo: "Novo evento",
+
+        descricao: ""
+
+    });
+
+
+    salvar_eventos();
+
+
+    criar_calendario();
+
+
+    // Recoloca a seleção no dia
+    const dias = document.querySelectorAll(".dia");
+
+    dias.forEach(function (dia) {
+
+        if (Number(dia.textContent) === dia_selecionado) {
+
+            dia.classList.add("selecionado");
+
+        }
+
+    });
+
+
+    mostrar_eventos();
+
+
+    // Coloca o cursor na descrição/título
+    const ultimo_evento =
+        evento_conteudo.lastElementChild;
+
+    const titulo =
+        ultimo_evento.querySelector("h3");
+
+    titulo.focus();
+
+
+    // Seleciona "Novo evento"
+    document.execCommand("selectAll", false, null);
 
 });
 
 
-function mostrar_evento(data) {
+// --------------------------------------------------
+// SALVAR NO LOCAL STORAGE
+// --------------------------------------------------
 
-    const evento = eventos[data];
+function salvar_eventos() {
 
-    if (evento) {
-        evento_conteudo.innerHTML = `
-            <li>
-                <h3>${evento.nome}</h3>
-                ${evento.materia}
-            </li>
-        `;
-    } else {
-        evento_conteudo.innerHTML = `
-            <li>Nenhum evento neste dia.</li>
-        `;
-    }
-}
+    localStorage.setItem(
+        "eventos",
+        JSON.stringify(eventos)
+    );
 
-function marcar_eventos() {
-
-    dias.forEach((dia) => {
-
-        const data = criar_data(Number(dia.textContent));
-
-        dia.classList.toggle("tem-evento", !!eventos[data]);
-
-    });
 }
 
 
-function trocar_mes() {
-
-    nome_mes.textContent = nomes_meses[mes_atual];
-
-    dias.forEach((dia) => {
-        dia.classList.remove("selecionado");
-    });
-
-    marcar_eventos();
-
-    evento_conteudo.innerHTML = `
-        <li>Selecione um dia.</li>
-    `;
-}
+// --------------------------------------------------
+// TROCAR MÊS
+// --------------------------------------------------
 
 function mudar_mes(valor) {
 
     mes_atual += valor;
 
-    if (mes_atual < 0) mes_atual = 11;
-    if (mes_atual > 11) mes_atual = 0;
 
-    trocar_mes();
+    if (mes_atual < 0) {
+
+        mes_atual = 11;
+
+    }
+
+
+    if (mes_atual > 11) {
+
+        mes_atual = 0;
+
+    }
+
+
+    dia_selecionado = null;
+
+
+    criar_calendario();
+
+
+    evento_conteudo.innerHTML = `
+        <p>Selecione um dia.</p>
+    `;
+
 }
 
 
-botao_anterior.addEventListener("click", () => mudar_mes(-1));
+// Botão mês anterior
+botao_anterior.addEventListener("click", function () {
 
-botao_proximo.addEventListener("click", () => mudar_mes(1));
+    mudar_mes(-1);
+
+});
 
 
-trocar_mes();
+// Botão próximo mês
+botao_proximo.addEventListener("click", function () {
+
+    mudar_mes(1);
+
+});
+
+
+// --------------------------------------------------
+// INICIA O CALENDÁRIO
+// --------------------------------------------------
+
+criar_calendario();

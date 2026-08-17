@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e2dfff;
+}
+
+
+/* TÍTULO */
+
+.titulo {
+    background-color: #4E49CE;
+    border-radius: 0 0 80px 80px;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.titulo h1 {
+    margin: 0;
+    color: white;
+    font-size: 2.5rem;
+}
+
+
+/* css da atividade */
+
+.atividade {
+    width: 70vw;
+    margin: 8vh auto 10vh;
+}
+
+
+/* css do forms */
+
+.formulario {
+    background-color: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+
+.formulario h1 {
+    color: #252364;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+
+/* RESULTADO */
+
+.resultado {
+    background-color: #4E49CE;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
+/* QUESTÃO */
+
+.questao {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+
+.questao h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 1.2rem;
+}
+
+
+/* ALTERNATIVAS */
+
+.alternativa {
+    display: block;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.alternativa:hover {
+    background-color: #e5e5e5;
+}
+
+
+.alternativa input {
+    margin-right: 10px;
+}
+
+
+/* RESPOSTA CORRETA */
+
+.resposta_correta {
+    background-color: #82DD78;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* RESPOSTA ERRADA */
+
+.resposta_errada {
+    background-color: #e57373;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* RESPOSTA QUE O USUÁRIO MARCOU */
+
+.resposta_usuario {
+    border: 3px solid #4E49CE;
+}
+
+
+/* BOTÃO ENVIAR */
+
+.botao_enviar {
+    background-color: #4E49CE;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.botao_enviar:hover {
+    background-color: #3935a5;
+    transform: scale(1.02);
+}
+
+
+/* AVISO DE REVISÃO */
+
+.atividade_bloqueada {
+    background-color: #eee;
+    color: #555;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+}

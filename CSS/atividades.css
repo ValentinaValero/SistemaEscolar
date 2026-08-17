@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.titulo {
+    z-index: 1;
+    background-color: #4E49CE;
+    border-radius: 0 0 80px 80px;
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.titulo h1 {
+    margin: 0 0;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.principal{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.atividade_1{
+    width: 85vw;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 40vw;
+    display: flex;
+    background-color: #80aee4;
+    padding: 10px;
+    color: white;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.atividade_1:hover{
+    background-color: #5f97d6;
+    
+}
+
+.atividade_1 .efeito{
+    background-color: #4E49CE;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 7vw;
+
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    width: 12vw;
+    height: 12vh;
+}
+
+.status.pendente {
+    background-color: #bb0000de;
+    color: #ffffff;
+}
+
+.status.feita {
+    background-color: #4caf5d;
+    color: white;
+}
