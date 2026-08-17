@@ -193,3 +193,6 @@ Entre os principais conceitos utilizados estão:
 * `localStorage`;
 * Criação dinâmica de elementos;
 * Desenvolvimento de interfaces interativas.
+
+## 📃 Documentos da Refatoração
+Documento com os detalhes da refatoração de algumas partes do código: **https://docs.google.com/document/d/1bkDdpyL-PEb-UV29muW-UHKVLFNz9mCDFUpjEYq0rpo/edit?usp=sharing**
